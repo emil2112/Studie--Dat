@@ -4,9 +4,9 @@ int x;
 int y;
 int counter = 0;
 int rowCounter = 0;
-float red;
-float green;
-float blue;
+int red;
+int green;
+int blue;
 
 void setup(){
    size(400,400);
@@ -23,6 +23,11 @@ void draw(){
  
   x = circleSize*counter;
   y = circleSize*rowCounter;
+  
+  //Satte koden her for også at få den til at farve den første cirkel
+  red = counter == 0 ? (int)random(255): 255;
+  green = counter == 0 ? (int)random(255): 255;
+  blue = counter == 0 ? (int)random(255): 255;
  
    fill(red,green,blue);
    
@@ -35,11 +40,7 @@ void draw(){
   counter =  frameCount % numberOfCircles == 0 ? 0 : counter+1;
   rowCounter =  counter==0 ? rowCounter+1:rowCounter;
   
-  if(counter == 0){
-    red = random(0, 255);
-    green = random(0, 255);
-    blue = random(0, 255);
-  }
+
   
   // Explaining the modulus operator
   // Modulus is what is left when you divide one int with another int.
